@@ -1,5 +1,6 @@
+-- sqlite3 database.sqlite
 
-CREATE TABLE 'avantage' (
+CREATE TABLE  IF NOT EXISTS 'avantage' (
     'entreprise_identifiant' VARCHAR(255),
     'denomination_sociale' VARCHAR(255),
     'ligne_identifiant' VARCHAR(255),
@@ -37,11 +38,9 @@ CREATE TABLE 'avantage' (
     'avant_convention_lie' VARCHAR(255),
     'semestre' VARCHAR(255)
 );
+.separator ';'
+.import  "C:/Users/Utilisateur/Desktop/Data_Viz-/data/declaration_avantage_2020_02_19_04_00.csv"  'avantage'
 
-LOAD DATA LOCAL INFILE "C:/Users/Utilisateur/Desktop/Data_Viz-/data/declaration_avantage_2020_02_19_04_00.csv"
-INTO TABLE avantage
-FIELDS TERMINATED BY ';' ENCLOSED BY '"'
-LINES TERMINATED BY '\n' IGNORE 1 LINES;
 
 
 CREATE TABLE 'convention' (
@@ -87,11 +86,9 @@ CREATE TABLE 'convention' (
     'conv_manifestation_lieu' VARCHAR(255),
     'conv_manifestation_organisateur' VARCHAR(255)
 );
+.separator ';'
+.import  "C:/Users/Utilisateur/Desktop/Data_Viz-/data/declaration_convention_2020_02_19_04_00.csv"  'convention'
 
-LOAD DATA LOCAL INFILE "C:/Users/Utilisateur/Desktop/Data_Viz-/data/declaration_convention_2020_02_19_04_00.csv"
-INTO TABLE convention
-FIELDS TERMINATED BY ';' ENCLOSED BY '"'
-LINES TERMINATED BY '\n' IGNORE 1 LINES;
 
 
 CREATE TABLE 'remuneration' (
@@ -130,11 +127,8 @@ CREATE TABLE 'remuneration' (
     'remu_montant_ttc' VARCHAR(255),
     'remu_convention_liee' VARCHAR(255)
 );
-
-LOAD DATA LOCAL INFILE "C:/Users/Utilisateur/Desktop/Data_Viz-/data/declaration_remuneration_2020_02_19_04_00.csv"
-INTO TABLE remuneration
-FIELDS TERMINATED BY ';' ENCLOSED BY '"'
-LINES TERMINATED BY '\n' IGNORE 1 LINES;
+.separator ';'
+.import  "C:/Users/Utilisateur/Desktop/Data_Viz-/data/declaration_remuneration_2020_02_19_04_00.csv"  'remuneration'
 
 
 CREATE TABLE 'entreprise' (
@@ -151,8 +145,6 @@ CREATE TABLE 'entreprise' (
     'code_postal' VARCHAR(255),
     'ville' VARCHAR(255)
 );
+.separator ','
+.import  "C:/Users/Utilisateur/Desktop/Data_Viz-/data/entreprise_2020_02_19_04_00.csv"  'entreprise'
 
-LOAD DATA LOCAL INFILE "C:/Users/Utilisateur/Desktop/Data_Viz-/data/entreprise_2020_02_19_04_00.csv"
-INTO TABLE entreprise
-FIELDS TERMINATED BY ',' ENCLOSED BY '"'
-LINES TERMINATED BY '\n' IGNORE 1 LINES;
