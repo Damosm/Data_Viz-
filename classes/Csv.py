@@ -6,6 +6,8 @@ class Csv(object):
     DATA_FOLDER = 'data'
 
     def __init__(self, filename, encoding, sep):
+        self.encoding = encoding
+        self.sep = sep
         self.filename = filename
     
     def __get_csv_path(self):
@@ -13,4 +15,4 @@ class Csv(object):
         return os.path.join(dir_path, self.filename)
 
     def get_data(self):
-        return pd.read_csv(self.__get_csv_path() + '.csv', encoding=encoding, sep=sep) 
+        return pd.read_csv(self.__get_csv_path() + '.csv', encoding = self.encoding, sep = self.sep) 
