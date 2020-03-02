@@ -3,3 +3,6 @@ __pycache__/
 
 # Ignoring csv files
 data/
+
+# Ignoring databases
+db/
