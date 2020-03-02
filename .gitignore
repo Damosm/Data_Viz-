@@ -1,0 +1,5 @@
+# Ignoring cached files
+__pycache__/
+
+# Ignoring csv files
+data/
