@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np 
 
 class Csv(object):
 
@@ -11,8 +12,8 @@ class Csv(object):
         self.filename = filename
     
     def __get_csv_path(self):
-        dir_path = os.path.dirname(os.path.realpath(__file__)) + '/' + self.DATA_FOLDER
+        dir_path = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir)) + '/' + self.DATA_FOLDER
         return os.path.join(dir_path, self.filename)
 
     def get_data(self):
-        return pd.read_csv(self.__get_csv_path() + '.csv', encoding = self.encoding, sep = self.sep) 
+        return pd.read_csv(self.__get_csv_path() + '.csv', encoding = self.encoding, sep = self.sep, low_memory=False) 
