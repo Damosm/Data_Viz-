@@ -1,6 +1,5 @@
--- sqlite3 database.sqlite
 
-CREATE TABLE  IF NOT EXISTS 'avantage' (
+CREATE TABLE 'avantage' (
     'entreprise_identifiant' VARCHAR(255),
     'denomination_sociale' VARCHAR(255),
     'ligne_identifiant' VARCHAR(255),
@@ -33,14 +32,16 @@ CREATE TABLE  IF NOT EXISTS 'avantage' (
     'benef_objet_social' VARCHAR(255),
     'ligne_type' VARCHAR(255),
     'avant_date_signature' VARCHAR(255),
-    'avant_montant_ttc' VARCHAR(255),
+    'avant_montant_ttc' INT,
     'avant_nature' VARCHAR(255),
     'avant_convention_lie' VARCHAR(255),
     'semestre' VARCHAR(255)
 );
-.separator ';'
-.import  "C:/Users/Utilisateur/Desktop/Data_Viz-/data/declaration_avantage_2020_02_19_04_00.csv"  'avantage'
 
+LOAD DATA LOCAL INFILE "C:/Users/Utilisateur/Documents/Python/Data_Viz-/data/declaration_avantage_2020_02_19_04_00.csv"
+INTO TABLE avantage
+FIELDS TERMINATED BY ';' ENCLOSED BY '"'
+LINES TERMINATED BY '\n' IGNORE 1 LINES;
 
 
 CREATE TABLE 'convention' (
@@ -80,15 +81,17 @@ CREATE TABLE 'convention' (
     'conv_objet_autre' VARCHAR(255),
     'conv_date_debut' VARCHAR(255),
     'conv_date_fin' VARCHAR(255),
-    'conv_montant_ttc' VARCHAR(255),
+    'conv_montant_ttc' INT,
     'conv_manifestation_date' VARCHAR(255),
     'conv_manifestation_nom' VARCHAR(255),
     'conv_manifestation_lieu' VARCHAR(255),
     'conv_manifestation_organisateur' VARCHAR(255)
 );
-.separator ';'
-.import  "C:/Users/Utilisateur/Desktop/Data_Viz-/data/declaration_convention_2020_02_19_04_00.csv"  'convention'
 
+LOAD DATA LOCAL INFILE "C:/Users/Utilisateur/Documents/Python/Data_Viz-/data/declaration_convention_2020_02_19_04_00.csv"
+INTO TABLE convention
+FIELDS TERMINATED BY ';' ENCLOSED BY '"'
+LINES TERMINATED BY '\n' IGNORE 1 LINES;
 
 
 CREATE TABLE 'remuneration' (
@@ -124,11 +127,14 @@ CREATE TABLE 'remuneration' (
     'benef_objet_social' VARCHAR(255),
     'ligne_type' VARCHAR(255),
     'remu_date' VARCHAR(255),
-    'remu_montant_ttc' VARCHAR(255),
+    'remu_montant_ttc' INT,
     'remu_convention_liee' VARCHAR(255)
 );
-.separator ';'
-.import  "C:/Users/Utilisateur/Desktop/Data_Viz-/data/declaration_remuneration_2020_02_19_04_00.csv"  'remuneration'
+
+LOAD DATA LOCAL INFILE "C:/Users/Utilisateur/Documents/Python/Data_Viz-/data/declaration_remuneration_2020_02_19_04_00.csv"
+INTO TABLE remuneration
+FIELDS TERMINATED BY ';' ENCLOSED BY '"'
+LINES TERMINATED BY '\n' IGNORE 1 LINES;
 
 
 CREATE TABLE 'entreprise' (
@@ -145,6 +151,8 @@ CREATE TABLE 'entreprise' (
     'code_postal' VARCHAR(255),
     'ville' VARCHAR(255)
 );
-.separator ','
-.import  "C:/Users/Utilisateur/Desktop/Data_Viz-/data/entreprise_2020_02_19_04_00.csv"  'entreprise'
 
+LOAD DATA LOCAL INFILE "C:/Users/Utilisateur/Documents/Python/Data_Viz-/data/entreprise_2020_02_19_04_00.csv"
+INTO TABLE entreprise
+FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+LINES TERMINATED BY '\n' IGNORE 1 LINES;

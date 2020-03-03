@@ -4,5 +4,10 @@ __pycache__/
 # Ignoring csv files
 data/
 
+<<<<<<< HEAD
+# Ignoring sqlite files
+=======
 # Ignoring database
+>>>>>>> 6e3ddaa5aefcb1f00138e9071d6b4f65139c15be
 db/database.sqlite
+db/database.db
