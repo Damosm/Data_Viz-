@@ -6,6 +6,7 @@ import plotly.graph_objs as go
 import sqlite3
 import os
 import plotly.express as px
+import base64
 
 
 conn = sqlite3.connect(r'C:/Users/Utilisateur/Documents/python/Data_Viz-/db\database_update.db')
@@ -118,7 +119,6 @@ fig11 = go.Figure(data=[go.Table(
 
 
 
-
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -209,7 +209,7 @@ app.layout = html.Div(children=[
             figure=fig11
         )
     ]),
-    html.Img(src=r'C:/Users/Utilisateur/Documents/python/Data_Viz-/image.jpg')
+    html.Img(src=app.get_asset_url('image.jpg'))
 ])
 if __name__ == '__main__':
     app.run_server(debug=True)
