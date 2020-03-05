@@ -10,7 +10,7 @@ INNER JOIN avantage on entreprise.identifiant = avantage.entreprise_identifiant
 where entreprise.identifiant = "MQKQLNIC";
 
 "liste des entreprises ayant payées une conventioniste "
-select denomination_sociale, sum(remu_montant_ttc) as total from convention
+select denomination_sociale, sum(conv_montant_ttc) as total from convention
 group by 1
 order by 2 desc;
 
